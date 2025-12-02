@@ -6,7 +6,7 @@
     <classes>
       <class name="com.fleapo.conduit.Test.RegisterSingleUserTest">
         <methods>
-          <include name="registerSingleUserUsingDataProvider"/>
+          <include name="registerSingleUserUsingDataProvider" invocation-numbers="0"/>
           <include name="tearDown"/>
           <include name="setUp"/>
         </methods>
@@ -29,14 +29,14 @@
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="loginFlowTest"/>
+          <include name="loginFlowTest" invocation-numbers="0 1 2"/>
         </methods>
       </class> <!-- com.fleapo.conduit.Test.LoginUsersFromExcelTest -->
       <class name="com.fleapo.conduit.Test.RegisterUsersFromExcelTest">
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="registerUsersUsingExcel"/>
+          <include name="registerUsersUsingExcel" invocation-numbers="0 1 2"/>
         </methods>
       </class> <!-- com.fleapo.conduit.Test.RegisterUsersFromExcelTest -->
     </classes>

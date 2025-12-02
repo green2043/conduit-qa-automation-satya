@@ -3,23 +3,16 @@
 
 <suite name="Conduit Automation Suite" verbose="2" parallel="false">
 
-    
-    
     <test name="Conduit Tests - Chrome">
         <parameter name="browser" value="chrome"/>
-        
+        <parameter name="browserversion" value=""/>
 
         <classes>
 
-            
-            <class name="com.fleapo.conduit.Test.RegisterUsersFromExcelTest"/>
-
             <class name="com.fleapo.conduit.Test.RegisterSingleUserTest"/>
-
+            <class name="com.fleapo.conduit.Test.RegisterUsersFromExcelTest"/>
             <class name="com.fleapo.conduit.Test.LoginUsersFromExcelTest"/>
-
             <class name="com.fleapo.conduit.Test.CreateArticleTest"/>
-
             <class name="com.fleapo.conduit.Test.GlobalFeedArticleTest"/>
 
         </classes>

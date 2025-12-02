@@ -39,7 +39,7 @@ public class RegisterPage {
 		eu.doSendKeys(passwordField, password);
 		eu.waitForElementVisible(signUpBtn,2);
 		eu.doClick(signUpBtn);
-		eu.waitForElementVisible(newArticleLink,2);
+		eu.waitForElementVisible(newArticleLink,8);
 
 		if (eu.doIsElementDisplayed(newArticleLink) || eu.doIsElementDisplayed(settingsLink)) {
 			System.out.println("SignUp successful ");
