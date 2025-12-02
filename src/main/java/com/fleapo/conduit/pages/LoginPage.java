@@ -61,7 +61,7 @@ public class LoginPage {
     public String getAnyErrorMessage() {
 
         String message = "";
-        eu.waitForElementsVisibile(errorText, 5);
+        eu.waitForElementsVisible(errorText, 5);
 
         if (isErrorAppeared()) {
             message = eu.doGetElementText(errorText);

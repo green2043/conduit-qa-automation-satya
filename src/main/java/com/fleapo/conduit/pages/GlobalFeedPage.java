@@ -24,12 +24,12 @@ public class GlobalFeedPage {
     }
 
     public String getFirstArticleTitle() {
-        eu.waitForElementsVisibile(articleTitles, 5);
+        eu.waitForElementsVisible(articleTitles, 5);
         return driver.findElements(articleTitles).get(0).getText();
     }
 
     public String getFirstArticleAuthor() {
-        eu.waitForElementsVisibile(articleAuthors, 5);
+        eu.waitForElementsVisible(articleAuthors, 5);
         return driver.findElements(articleAuthors).get(0).getText();
     }
     
