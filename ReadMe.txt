@@ -77,7 +77,3 @@ conduit-automation/
   linkText, partialLinkText, XPath (no CSS selectors).
 • Framework includes element highlighting & retry on stale elements.
 • Excel data drives registration & login scenarios.
-
-------------------------------------------------------------
-End of Document
-------------------------------------------------------------
