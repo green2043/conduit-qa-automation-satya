@@ -1,0 +1,342 @@
+============================================================
+CONDUIT WEB APPLICATION – BUG REPORT & TEST DOCUMENT
+Version: v1.0
+Tester: Satyanarayan Sahoo
+Application: https://conduit.bondaracademy.com/
+Browser: Chrome latest
+OS: Windows 11
+============================================================
+
+
+============================================================
+ BUG REPORTS
+
+============================================================
+
+
+------------------------------------------------------------
+BUG 1: Global Feed Visible Without Login
+Module: Home Page
+Severity: Medium
+Priority: High
+
+Steps:
+1. Visit home page without logging in.
+2. Click “Global Feed”.
+
+Expected: Global Feed should require login.
+Actual: Feed loads fully without authentication.
+Impact: Access control issue.
+
+
+------------------------------------------------------------
+BUG 2: Back Button Shows Authenticated Pages After Logout
+Module: Logout
+Severity: High
+Priority: High
+
+Steps:
+1. Login → open Settings.
+2. Logout.
+3. Press browser Back.
+
+Expected: Should redirect to login.
+Actual: Settings page appears again.
+Impact: Security flaw (session caching).
+
+
+------------------------------------------------------------
+BUG 3: Article List Flickers / Reloads Twice
+Module: Global Feed
+Severity: Medium
+Priority: High
+
+Steps:
+1. Login → open Global Feed.
+2. Observe article cards while loading.
+
+Expected: Stable one-time load.
+Actual: UI flickers, articles reload twice.
+Impact: Causes stale elements during automation.
+
+
+------------------------------------------------------------
+BUG 4: Clicking Article Opens Wrong Author Details
+Module: Article View
+Severity: Medium
+Priority: Medium
+
+Expected: Author inside article should match feed.
+Actual: Occasional mismatch due to feed reload timing.
+
+
+------------------------------------------------------------
+BUG 5: Tag Filter Shows Empty Results
+Module: Tag Filter
+Severity: Medium
+Priority: High
+
+Expected: Articles should load for selected tag.
+Actual: “No articles found” even when articles exist.
+
+
+------------------------------------------------------------
+BUG 6: Settings Page Accepts Invalid URL
+Module: Settings
+Severity: Low
+Priority: Medium
+
+Expected: URL validation.
+Actual: Accepts invalid formats (abc, 123, @@@).
+
+
+------------------------------------------------------------
+BUG 7: Long Bio Breaks Layout
+Module: Profile / Settings
+Severity: Low
+Priority: Low
+
+Expected: Text wrapping.
+Actual: Bio overlaps layout in some resolutions.
+
+
+------------------------------------------------------------
+BUG 8: Global Feed Does Not Refresh After Creating Article
+Module: Create Article
+Severity: Medium
+Priority: Medium
+
+Expected: Newly created article should appear at top.
+Actual: Not visible until manual refresh.
+
+
+------------------------------------------------------------
+BUG 9: Author Filter in Profile Page Shows Wrong List
+Module: Profile
+Severity: Medium
+Priority: Medium
+
+Expected: Only author’s own articles.
+Actual: Shows unrelated or empty list.
+
+
+------------------------------------------------------------
+BUG 10: UI Freezes When Clicking Articles Rapidly
+Module: All Articles
+Severity: Medium
+Priority: High
+
+Expected: Smooth navigation.
+Actual: UI hangs for 3–5 seconds due to delayed API.
+
+
+------------------------------------------------------------
+BUG 11: Global Feed Empty for Newly Registered Users
+Module: Global Feed
+Severity: Medium
+Priority: High
+
+Expected: Default articles visible.
+Actual: Feed sometimes empty even when articles exist.
+
+
+------------------------------------------------------------
+BUG 12: Author Name Missing in Article Page
+Module: Article Page
+Severity: High
+Priority: High
+
+Expected: Author name always visible.
+Actual: Sometimes blank due to timing issue.
+
+
+------------------------------------------------------------
+BUG 13: Login Form Accepts Whitespace in Email
+Module: Login
+Severity: Medium
+Priority: Medium
+
+Expected: Trim spaces automatically.
+Actual: Login fails and shows confusing error.
+
+
+------------------------------------------------------------
+BUG 14: Registration Allows Spaces in Username
+Module: Registration
+Severity: Low
+Priority: Medium
+
+Expected: Usernames cannot contain spaces.
+Actual: Registration succeeds.
+
+
+------------------------------------------------------------
+BUG 15: Article Body Flickers During Load
+Module: Article Page
+Severity: Medium
+Priority: Low
+
+Expected: Stable visible article body.
+Actual: Appears–disappears during load.
+
+
+------------------------------------------------------------
+BUG 16: Logout Button Sometimes Not Clickable
+Module: Settings
+Severity: Medium
+Priority: High
+
+Expected: Button should work instantly.
+Actual: Requires multiple clicks.
+
+
+------------------------------------------------------------
+BUG 17: Global Feed Flicker (UI Rerender)
+Module: Global Feed
+Severity: Low
+Priority: Low
+
+Expected: Stable UI.
+Actual: Flicker due to Angular rerender.
+
+
+------------------------------------------------------------
+BUG 18: Comment Box Accepts Blank Comments
+Module: Comments
+Severity: Medium
+Priority: High
+
+Expected: Should block blank/whitespace-only comments.
+Actual: Saves empty comment cards.
+
+
+------------------------------------------------------------
+BUG 19: Settings Allows Invalid Website URLs
+Module: Settings
+Severity: Low
+Priority: Medium
+
+Expected: Error on invalid URL.
+Actual: No validation performed.
+
+
+------------------------------------------------------------
+BUG 20: Profile Page Shows Empty Article List
+Module: Profile
+Severity: Medium
+Priority: Medium
+
+Expected: User-created articles should appear.
+Actual: Shows “No articles... yet” incorrectly.
+
+
+============================================================
+TEST PLAN
+============================================================
+
+Project: Conduit Web Application
+Purpose: Validate core functionality and automate top-priority flows.
+
+1. Objective
+Validate major user journeys, ensure functional correctness, and automate key flows.
+
+2. In Scope
+• Registration
+• Login
+• Global Feed
+• Article Creation
+• Article Viewing
+• User Settings
+• Logout
+• Basic UI validation
+• Error handling
+
+3. Test Approach
+• Functional Testing
+• UI/UX Testing
+• Boundary & Negative Testing
+• Smoke & Regression
+• Data-Driven Testing (Excel)
+• Selenium + Java + TestNG POM Automation
+
+4. Test Environment
+• Java 17
+• Selenium WebDriver 4.25
+• TestNG 7.10
+• Chrome (Latest)
+• Maven
+• Excel-based test data
+
+5. Test Data
+Username: regTestUserXX  
+Email: regTestUserXX@test.com  
+Password: Test!@#1234  
+Article Title: Automation Test Article  
+Article Body: Test Body Content…
+
+6. Entry Criteria
+• Application accessible  
+• Framework ready  
+• Test data prepared  
+
+7. Exit Criteria
+• All high-priority tests executed  
+• P1/P2 bugs logged  
+• 5 automated tests passing  
+
+8. Risks & Mitigations
+Dynamic loading → Use explicit waits  
+Stale DOM → Retry logic  
+Slow API → Higher timeouts  
+
+
+============================================================
+10 CRITICAL TEST SCENARIOS
+============================================================
+
+1. User Registration – Valid Data  
+2. Registration – Invalid Email  
+3. Login – Valid Credentials  
+4. Login – Wrong Password  
+5. Global Feed – Article Listing  
+6. Global Feed → Article Navigation  
+7. Create Article – Valid Flow  
+8. Create Article – Empty Fields  
+9. Settings → Update Bio  
+10. Logout Flow  
+
+
+============================================================
+MINI TEST SCRIPTS
+============================================================
+
+Test Script 1: User Registration – Valid  
+Steps: Open Sign Up → enter details → submit  
+Expected: User logged in.
+
+Test Script 2: Registration – Invalid Email  
+Expected: Email validation error.
+
+Test Script 3: Login – Valid  
+Expected: Username visible in navbar.
+
+Test Script 4: Login – Wrong Password  
+Expected: Error message.
+
+Test Script 5: Global Feed Loads  
+Expected: Article cards appear.
+
+Test Script 6: Article Navigation  
+Expected: Title and author match feed.
+
+Test Script 7: Create Article – Valid  
+Expected: Article successfully created.
+
+Test Script 8: Create Article – Empty Fields  
+Expected: Validation errors.
+
+Test Script 9: Update Bio  
+Expected: Bio updated.
+
+Test Script 10: Logout  
+Expected: User logged out.
