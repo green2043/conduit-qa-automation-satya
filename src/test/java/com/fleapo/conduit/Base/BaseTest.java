@@ -15,14 +15,14 @@ public class BaseTest {
     protected DriverFactory driverFactory;
     protected Properties prop;
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         driverFactory = new DriverFactory();
         prop = driverFactory.initializeProp();      
         driver = driverFactory.initDriver(prop);    
     }
 
-    @AfterTest(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
         if (driver != null) {
             driver.quit();

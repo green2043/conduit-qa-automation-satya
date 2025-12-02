@@ -3,35 +3,8 @@
 <suite name="Failed suite [Conduit Automation Suite]" guice-stage="DEVELOPMENT" verbose="2">
   <test thread-count="5" name="Conduit Tests - Chrome(failed)" verbose="2">
     <parameter name="browser" value="chrome"/>
+    <parameter name="browserversion" value=""/>
     <classes>
-      <class name="com.fleapo.conduit.Test.RegisterSingleUserTest">
-        <methods>
-          <include name="registerSingleUserUsingDataProvider" invocation-numbers="0"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.fleapo.conduit.Test.RegisterSingleUserTest -->
-      <class name="com.fleapo.conduit.Test.CreateArticleTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="createArticleFlow"/>
-        </methods>
-      </class> <!-- com.fleapo.conduit.Test.CreateArticleTest -->
-      <class name="com.fleapo.conduit.Test.GlobalFeedArticleTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="verifyGlobalFeedArticle"/>
-        </methods>
-      </class> <!-- com.fleapo.conduit.Test.GlobalFeedArticleTest -->
-      <class name="com.fleapo.conduit.Test.LoginUsersFromExcelTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="loginFlowTest" invocation-numbers="0 1 2"/>
-        </methods>
-      </class> <!-- com.fleapo.conduit.Test.LoginUsersFromExcelTest -->
       <class name="com.fleapo.conduit.Test.RegisterUsersFromExcelTest">
         <methods>
           <include name="tearDown"/>

@@ -31,25 +31,30 @@ public class RegisterPage {
 	}
 
 	public HomePage doRegister(String username, String email, String password) {
-		eu.waitForElementVisible(usernameField,3);
-		eu.doSendKeys(usernameField, username);
-		eu.waitForElementVisible(emailField,2);
-		eu.doSendKeys(emailField, email);
-		eu.waitForElementVisible(passwordField,3);
-		eu.doSendKeys(passwordField, password);
-		eu.waitForElementVisible(signUpBtn,2);
-		eu.doClick(signUpBtn);
-		eu.waitForElementVisible(newArticleLink,8);
+	    eu.waitForElementVisible(usernameField,3);
+	    eu.doSendKeys(usernameField, username);
 
-		if (eu.doIsElementDisplayed(newArticleLink) || eu.doIsElementDisplayed(settingsLink)) {
-			System.out.println("SignUp successful ");
-			return new HomePage(driver);
-		} else {
-			String error = getAnyErrorMessage();
-			System.out.println("Sign up failed. Error: " + error);
-			return null;
-		}
+	    eu.waitForElementVisible(emailField,2);
+	    eu.doSendKeys(emailField, email);
+
+	    eu.waitForElementVisible(passwordField,3);
+	    eu.doSendKeys(passwordField, password);
+
+	    eu.waitForElementVisible(signUpBtn,2);
+	    eu.doClick(signUpBtn);
+
+	    
+	    try {
+	        eu.waitForElementVisible(newArticleLink, 5);
+	        System.out.println("SignUp successful ");
+	        return new HomePage(driver);
+	    } catch (Exception e) {
+	        String error = getAnyErrorMessage();
+	        System.out.println("SignUp failed. Error: " + error);
+	        return null;
+	    }
 	}
+
 
 	public boolean isEmailErrorVisible() {
 		return eu.doIsElementDisplayed(errorTextEmailTaken);
