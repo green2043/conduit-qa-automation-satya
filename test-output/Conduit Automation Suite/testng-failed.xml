@@ -9,9 +9,37 @@
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="registerUsersUsingExcel" invocation-numbers="0 1 2"/>
+          <include name="registerUsersUsingExcel"/>
         </methods>
       </class> <!-- com.fleapo.conduit.Test.RegisterUsersFromExcelTest -->
+      <class name="com.fleapo.conduit.Test.CreateArticleTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="createArticleFlow"/>
+        </methods>
+      </class> <!-- com.fleapo.conduit.Test.CreateArticleTest -->
+      <class name="com.fleapo.conduit.Test.GlobalFeedArticleTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="verifyGlobalFeedArticle"/>
+        </methods>
+      </class> <!-- com.fleapo.conduit.Test.GlobalFeedArticleTest -->
+      <class name="com.fleapo.conduit.Test.LoginUsersFromExcelTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="loginFlowTest"/>
+        </methods>
+      </class> <!-- com.fleapo.conduit.Test.LoginUsersFromExcelTest -->
+      <class name="com.fleapo.conduit.Test.RegisterSingleUserTest">
+        <methods>
+          <include name="registerSingleUserUsingDataProvider"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.fleapo.conduit.Test.RegisterSingleUserTest -->
     </classes>
   </test> <!-- Conduit Tests - Chrome(failed) -->
 </suite> <!-- Failed suite [Conduit Automation Suite] -->
