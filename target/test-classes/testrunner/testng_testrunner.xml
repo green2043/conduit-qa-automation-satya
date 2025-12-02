@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Conduit Automation Suite" parallel="tests" thread-count="2">
+<suite name="Conduit Automation Suite" verbose="2" parallel="false">
 
-    <test name="Chrome Execution">
-       
+    
+    
+    <test name="Conduit Tests - Chrome">
+        <parameter name="browser" value="chrome"/>
         
+
         <classes>
+
             
-            <class name="com.fleapo.conduit.Test.RegisterSingleUserTest" />
-            <class name="com.fleapo.conduit.Test.RegisterUsersFromExcelTest" />
-            <class name="com.fleapo.conduit.Test.LoginUsersFromExcelTest" />
-            <class name="com.fleapo.conduit.Test.GlobalFeedArticleTest" />
-            <class name="com.fleapo.conduit.Test.CreateArticleTest" />
+            <class name="com.fleapo.conduit.Test.RegisterUsersFromExcelTest"/>
+
+            <class name="com.fleapo.conduit.Test.RegisterSingleUserTest"/>
+
+            <class name="com.fleapo.conduit.Test.LoginUsersFromExcelTest"/>
+
+            <class name="com.fleapo.conduit.Test.CreateArticleTest"/>
+
+            <class name="com.fleapo.conduit.Test.GlobalFeedArticleTest"/>
+
         </classes>
     </test>
 

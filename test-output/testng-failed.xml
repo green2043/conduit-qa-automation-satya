@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="2" parallel="tests" name="Failed suite [Conduit Automation Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="2" parallel="tests" name="Chrome Execution(failed)">
+<suite name="Failed suite [Conduit Automation Suite]" guice-stage="DEVELOPMENT" verbose="2">
+  <test thread-count="5" name="Conduit Tests - Chrome(failed)" verbose="2">
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.fleapo.conduit.Test.RegisterUsersFromExcelTest">
+      <class name="com.fleapo.conduit.Test.RegisterSingleUserTest">
+        <methods>
+          <include name="registerSingleUserUsingDataProvider"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.fleapo.conduit.Test.RegisterSingleUserTest -->
+      <class name="com.fleapo.conduit.Test.CreateArticleTest">
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="registerUsersUsingExcel" invocation-numbers="0 1 2"/>
+          <include name="createArticleFlow"/>
         </methods>
-      </class> <!-- com.fleapo.conduit.Test.RegisterUsersFromExcelTest -->
+      </class> <!-- com.fleapo.conduit.Test.CreateArticleTest -->
       <class name="com.fleapo.conduit.Test.GlobalFeedArticleTest">
         <methods>
           <include name="tearDown"/>
@@ -21,16 +29,16 @@
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="loginFlowTest" invocation-numbers="0 1 2"/>
+          <include name="loginFlowTest"/>
         </methods>
       </class> <!-- com.fleapo.conduit.Test.LoginUsersFromExcelTest -->
-      <class name="com.fleapo.conduit.Test.CreateArticleTest">
+      <class name="com.fleapo.conduit.Test.RegisterUsersFromExcelTest">
         <methods>
           <include name="tearDown"/>
-          <include name="createArticleFlow"/>
           <include name="setUp"/>
+          <include name="registerUsersUsingExcel"/>
         </methods>
-      </class> <!-- com.fleapo.conduit.Test.CreateArticleTest -->
+      </class> <!-- com.fleapo.conduit.Test.RegisterUsersFromExcelTest -->
     </classes>
-  </test> <!-- Chrome Execution(failed) -->
+  </test> <!-- Conduit Tests - Chrome(failed) -->
 </suite> <!-- Failed suite [Conduit Automation Suite] -->
