@@ -65,27 +65,34 @@ public class RegisterPage {
 	}
 
 	public String getAnyErrorMessage() {
+	    String message = "";
 
-		String message = "";
-		eu.waitForElementVisible(errorTextEmailTaken,2);
-		if (eu.doIsElementDisplayed(errorTextEmailTaken)) {
-			message = message + eu.doGetElementText(errorTextEmailTaken);
-		}
+	    
+	    try {
+	        if (eu.doIsElementDisplayed(errorTextEmailTaken)) {
+	            message += eu.doGetElementText(errorTextEmailTaken);
+	        }
+	    } catch (Exception ignored) {}
 
-		if (eu.doIsElementDisplayed(errorTextUserNameTaken)) {
-			if (!message.isEmpty()) {
-				message = message + " | ";
-			}
-			message = message + eu.doGetElementText(errorTextUserNameTaken);
-		}
-		if (eu.doIsElementDisplayed(errorTextUserNameLiitExceed)) {
-			if (!message.isEmpty()) {
-				message = message + " | ";
-			}
-			message = message + eu.doGetElementText(errorTextUserNameLiitExceed);
-		}
+	    try {
+	        if (eu.doIsElementDisplayed(errorTextUserNameTaken)) {
+	            if (!message.isEmpty()) message += " | ";
+	            message += eu.doGetElementText(errorTextUserNameTaken);
+	        }
+	    } catch (Exception ignored) {}
 
+	    try {
+	        if (eu.doIsElementDisplayed(errorTextUserNameLiitExceed)) {
+	            if (!message.isEmpty()) message += " | ";
+	            message += eu.doGetElementText(errorTextUserNameLiitExceed);
+	        }
+	    } catch (Exception ignored) {}
 
-		return message;
+	    if (message.isEmpty()) {
+	        message = "Unknown error";
+	    }
+
+	    return message;
 	}
+
 }
